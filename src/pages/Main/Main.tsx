@@ -6,6 +6,8 @@ import styles from "./Main.module.scss";
 import Skeleton from "../../components/Skeleton/Skeleton";
 import Pagination from "../../components/Pagination/Pagination";
 import Categories from "../../components/Categories/Categories";
+import Search from "../../components/Search/Search";
+import { useDebounce } from "../../components/hooks/useDebounce";
 
 const CATEGORIES = [
     "general",
@@ -18,14 +20,17 @@ const CATEGORIES = [
     "science",
     "health",
 ];
+
 const Main = () => {
     const [news, setNews] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    // const [categories, setCategories] = useState([]);
+    const [keywords, setKeywords] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("All");
     const totalPages = 10;
     const pageSize = 10;
+
+    const debouncedKeywords = useDebounce(keywords, 1500);
 
     const fetchNews = async (currentPage) => {
         try {
@@ -33,6 +38,7 @@ const Main = () => {
                 page: currentPage,
                 pageSize,
                 category: selectedCategory === "All" ? null : selectedCategory,
+                keywords: debouncedKeywords,
             });
             setNews(response.articles);
         } catch (error) {
@@ -42,27 +48,11 @@ const Main = () => {
         }
     };
 
-    // const fetchCategories = async () => {
-    //     try {
-    //         const response = await getCategories();
-    //         setCategories(["All", ...CATEGORIES]);
-    //     } catch (error) {
-    //         console.log(error);
-    //     } finally {
-    //         setIsLoading(false);
-    //     }
-    // };
-    // console.log(categories);
-
-    // useEffect(() => {
-    //     fetchCategories();
-    // }, []);
-
     useEffect(() => {
         setIsLoading(true);
 
         fetchNews(currentPage);
-    }, [currentPage, selectedCategory]);
+    }, [currentPage, selectedCategory, debouncedKeywords]);
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {
@@ -87,6 +77,8 @@ const Main = () => {
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
             />
+
+            <Search keywords={keywords} setKeywords={setKeywords} />
 
             {news.length > 0 && !isLoading ? (
                 <NewsBanner item={news[0]} />
