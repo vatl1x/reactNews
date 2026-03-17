@@ -1,11 +1,11 @@
 import styles from "./Image.module.scss";
 
 const Image = ({ image }) => {
-    return (
+    return image ? (
         <div className={styles.wrapper}>
-            {image ? <img src={image} alt="news" /> : null}
+            <img src={image} alt="news" className={styles.image} />
         </div>
-    );
+    ) : null;
 };
 
 export default Image;
