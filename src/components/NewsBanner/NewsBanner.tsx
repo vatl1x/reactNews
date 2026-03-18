@@ -14,4 +14,5 @@ const NewsBanner = ({ item }) => {
     );
 };
 
+
 export default NewsBanner;
