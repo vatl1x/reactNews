@@ -25,6 +25,8 @@ export const getNews = async ({
         console.log(error);
     }
 };
+
+
 //-----    НЕ РЕАЛИЗОВАНА ПОСКОЛЬКУ КАТЕГОРИИ АПИ ДАЕТ КОНСТАНТОЙ, ПОЛУЧИТЬ НЕЙМИНГИ ИХ ЗАПРОСМ НЕЛЬЗЯ
 // export const getCategories = async () => {
 //     try {
