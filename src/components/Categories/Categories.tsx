@@ -1,8 +1,9 @@
+import { forwardRef } from "react";
 import styles from "./Categories.module.scss";
 
-const Categories = ({ categories, selectedCategory, setSelectedCategory }) => {
+const Categories = forwardRef(({ categories, selectedCategory, setSelectedCategory },ref) => {
     return (
-        <div className={styles.categories}>
+        <div ref={ref} className={styles.categories}>
             <button
                 className={!selectedCategory ? styles.active : styles.item}
                 onClick={() => setSelectedCategory(null)}
@@ -24,6 +25,8 @@ const Categories = ({ categories, selectedCategory, setSelectedCategory }) => {
             ))}
         </div>
     );
-};
+});
+
+Categories.displayName = 'Categories' //чтобы в React DevTools компонент отображался с именем, а не как ForwardRef
 
 export default Categories;
