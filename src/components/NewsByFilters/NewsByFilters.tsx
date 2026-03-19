@@ -1,6 +1,6 @@
 import { getNews } from "../../api/apiNews";
 import { PAGE_SIZE, TOTAL_PAGES } from "../../constants/constants";
-import { useDebounce } from "../../helpers/hooks/useDebounce";
+import { useDebounce } from "../../components/hooks/useDebounce";
 import { useFetch } from "../../helpers/hooks/useFetch";
 import { useFilters } from "../../helpers/hooks/useFilters";
 import NewsFilters from "../NewsFilters/NewsFilters";
