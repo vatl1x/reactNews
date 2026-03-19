@@ -50,7 +50,7 @@ const NewsByFilters = () => {
                 totalPages={TOTAL_PAGES}
                 currentPage={filters.page}
             >
-                <NewsList isLoading={isLoading} news={data?.articles} />
+                <NewsList isLoading={isLoading} news={data?.articles ?? []} />
             </PaginationWrapper>
         </section>
     );
