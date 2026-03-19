@@ -1,7 +1,9 @@
+import type { CategoriesType } from "../interfaces";
+
 export const TOTAL_PAGES = 10;
 export const PAGE_SIZE = 10;
 
-export const CATEGORIES = [
+export const CATEGORIES: CategoriesType[] = [
     "world",
     "nation",
     "business",
