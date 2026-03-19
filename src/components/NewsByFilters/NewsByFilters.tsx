@@ -5,7 +5,7 @@ import { useFetch } from "../../helpers/hooks/useFetch";
 import { useFilters } from "../../helpers/hooks/useFilters";
 import NewsFilters from "../NewsFilters/NewsFilters";
 import NewsList from "../NewsList/NewsList";
-import PaginationWrapper from "../PaginationWrapper/PainationWrapper";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper";
 import styles from "./NewsByFilters.module.scss";
 
 const NewsByFilters = () => {
