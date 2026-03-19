@@ -1,6 +1,10 @@
 import styles from "./Image.module.scss";
 
-const Image = ({ image }) => {
+interface Props {
+    image: string;
+}
+
+const Image = ({ image }: Props) => {
     return image ? (
         <div className={styles.wrapper}>
             <img src={image} alt="news" className={styles.image} />

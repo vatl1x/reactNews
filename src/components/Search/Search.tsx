@@ -1,6 +1,11 @@
 import styles from "./Search.module.scss";
 
-const Search = ({ keywords, setKeywords }) => {
+interface Props {
+    keywords: string;
+    setKeywords: (keyword: string) => void;
+}
+
+const Search = ({ keywords, setKeywords }: Props) => {
     return (
         <div className={styles.search}>
             <input
