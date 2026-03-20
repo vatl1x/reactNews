@@ -35,7 +35,7 @@ const NewsByFilters = () => {
         }
     };
 
-    const handlePageClick = (pageNumber : number) => {
+    const handlePageClick = (pageNumber: number) => {
         changeFilter("page", pageNumber);
     };
     return (
