@@ -1,11 +1,9 @@
-import { getNews } from "../../api/apiNews";
-import { useFetch } from "../../helpers/hooks/useFetch";
-import type { NewsApiResponse, ParamsType } from "../../interfaces";
+import { useGetNewsQuery } from "../../store/services/newsApi";
 import BannersList from "../BannersList/BannersList";
 import styles from "./LatestNews.module.scss";
 
 const LatestNews = () => {
-    const { data, isLoading } = useFetch<NewsApiResponse, ParamsType>(getNews, {
+    const { data, isLoading } = useGetNewsQuery({
         category: "general",
     });
     return (
