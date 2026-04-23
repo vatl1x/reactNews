@@ -1,7 +1,11 @@
-.item {
+.card {
     display: flex;
     gap: 12px;
     width: 100%;
+}
+
+.banner {
+    flex-direction: column;
 }
 
 .title {
