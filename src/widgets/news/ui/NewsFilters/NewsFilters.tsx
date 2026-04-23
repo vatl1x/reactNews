@@ -6,17 +6,20 @@ import { Categories } from "@/features/category";
 import { Search } from "@/features/search";
 import { Slider } from "@/features/slider";
 import { CATEGORIES } from "@/shared/constants/constants";
+import { useTheme } from "@/app/providers/ThemeProvider";
 
 interface Props {
     filters: IFilters;
 }
 
 const NewsFilters = ({ filters }: Props) => {
+    const { isDark } = useTheme();
+
     const dispatch = useAppDispatch();
 
     return (
         <div className={styles.filters}>
-            <Slider step={100}>
+            <Slider step={100} isDark={isDark}>
                 <Categories
                     categories={CATEGORIES}
                     selectedCategory={filters.category}
