@@ -1,6 +1,6 @@
 import { useGetNewsQuery } from "@/entities/news/api/newsApi";
-import BannersList from "@/widgets/news/ui/BannersList/BannersList";
 import styles from "./LatestNews.module.scss";
+import { NewsList } from "@/widgets/news";
 
 const LatestNews = () => {
     const { data, isLoading } = useGetNewsQuery({
@@ -8,8 +8,10 @@ const LatestNews = () => {
     });
     return (
         <section className={styles.section}>
-            <BannersList
-                banners={data && data.articles}
+            <NewsList
+                type="banner"
+                direction="row"
+                news={data && data.articles}
                 isLoading={isLoading}
             />
         </section>
